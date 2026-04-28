@@ -54,6 +54,10 @@ def generate_custom_password(base_word):
     return word + special + extras + str(random.randint(100, 999))
 
 
+def generate_multiple(base_word, count=3):
+    return [generate_custom_password(base_word) for _ in range(count)]
+
+
 if password:
     strength, suggestions = analyze_password(password)
 
@@ -64,10 +68,13 @@ if password:
         for s in suggestions:
             st.write("- ", s)
 
-    if st.button("Generate Strong Password"):
-        st.write("🔐 Example:")
-        st.code(generate_custom_password(password))
+    if st.button("Generate Strong Passwords"):
+        st.write("🔐 Strong Password Suggestions:")
 
+        strong_list = generate_multiple(password, 3)
+
+        for i, p in enumerate(strong_list, 1):
+            st.write(f"{i}. {p}")
 
 # Custom generator
 st.write("## Custom Password Generator")
@@ -75,4 +82,6 @@ base = st.text_input("Enter name / pet / place")
 
 if st.button("Generate Custom Password"):
     if base:
-        st.code(generate_custom_password(base))
+        st.write("🔐 Custom Password Suggestions:")
+        for i in range(3):
+            st.write(f"{i+1}. {generate_custom_password(base)}")
