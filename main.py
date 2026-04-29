@@ -78,7 +78,7 @@ if password:
 
 # Custom generator
 st.write("## Custom Password Generator")
-base = st.text_input("Enter name / pet / place")
+base = st.text_input("Enter name / pet / place / favorite word / etc etc...")
 
 if st.button("Generate Custom Password"):
     if base:
