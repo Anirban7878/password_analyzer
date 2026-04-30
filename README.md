@@ -33,3 +33,10 @@ password_analyzer/
 1. Clone the repository:
    ```bash
    git clone https://github.com/Anirban7878/password_analyzer.git
+
+2. Navigate to the folder:
+   </> bash
+   cd password_analyzer
+
+3. </> bash
+   python main.py
